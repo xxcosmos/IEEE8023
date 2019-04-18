@@ -1,13 +1,14 @@
-import java.math.BigDecimal;
+
+
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+        List<FrameVO> frameVOList = FrameService.getFrameVOList("hello world");
 
-        EthernetFrame ethernetFrame = new EthernetFrame("hello world");
-        System.out.println(Long.toHexString(CRC32.calculate(ethernetFrame)));
-//        char[] resultChars = "abcdefg".toCharArray();
-//        System.arraycopy(resultChars, 1, resultChars, 0, resultChars.length-1);
-//        System.out.println(resultChars);
+        for (FrameVO frameVO : frameVOList) {
+            System.out.println(frameVO);
+        }
     }
 }

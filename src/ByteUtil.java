@@ -7,7 +7,7 @@ class ByteUtil {
      * @param length 需要的位数
      * @return 补0后的二进制字符串
      */
-    static String completeBinaryStringWithZero(String s, int length, boolean isBefore) {
+    static String zeroImplement(String s, int length, boolean isBefore) {
         if (s.length() >= length) {
             //字符串的长度大于需要的位数
             return s;
@@ -42,7 +42,7 @@ class ByteUtil {
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            sb.append(completeBinaryStringWithZero(Integer.toBinaryString(s.charAt(i)), 8, true));
+            sb.append(zeroImplement(Integer.toBinaryString(s.charAt(i)), 8, true));
         }
 
         return sb.toString();

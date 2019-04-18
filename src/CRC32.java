@@ -2,18 +2,16 @@ class CRC32 {
     //生成多项式 4B
     private static final long POLYNOMIAL = 0x01_04_C1_1D_B7L;
 
-    static long calculate(EthernetFrame frame) {
-        //得到01字符串
-        String data = frame.getBinaryString();
+    static long getCheckNum(String data) {
         //生成多项式01字符串
         String polynomialBinary = Long.toBinaryString(POLYNOMIAL);
         int polynomialLength = polynomialBinary.length();
         int totalLength = data.length() + polynomialLength - 1;
 
         //在数据后面补0
-        data = ByteUtil.completeBinaryStringWithZero(data, totalLength, false);
+        data = ByteUtil.zeroImplement(data, totalLength, false);
         //校验码初始化
-        String result = ByteUtil.completeBinaryStringWithZero("", polynomialLength, false);
+        String result = ByteUtil.zeroImplement("", polynomialLength, false);
 
         char[] polynomialBinaryCharArray = polynomialBinary.toCharArray();
         char[] resultChars = result.toCharArray();
