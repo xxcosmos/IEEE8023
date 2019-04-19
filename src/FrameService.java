@@ -26,13 +26,11 @@ class FrameService {
         if (data.length() <= 1500) {
             dataList.add(data);
             return dataList;
-        }
-
-        while (data.length() > 1500) {
+        } else {
             dataList.add(data.substring(0, 1500));
-            data = data.substring(1500);
+            List<String> datas = getDataList(data.substring(1500));
+            dataList.addAll(datas);
         }
-
         return dataList;
     }
 
