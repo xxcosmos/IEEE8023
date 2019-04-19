@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrameService {
+class FrameService {
     //前导码 7B
     private static final long PREAMBLE = 0xAA_AA_AA_AA_AA_AA_AAL;
     //帧前定界符 1B
@@ -36,7 +36,7 @@ public class FrameService {
         return dataList;
     }
 
-    public static List<FrameVO> getFrameVOList(String data) {
+    static List<FrameVO> getFrameVOList(String data) {
         List<String> dataList = getDataList(data);
         List<FrameVO> frameVOList = new ArrayList<>();
         for (String frameData : dataList) {
